@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { createClient } from "contentful";
-import { SPACE_ID, ACCESSTOKEN } from "../../constants";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { createClient } from 'contentful';
+import { SPACE_ID, ACCESSTOKEN } from '../../constants';
 
 class BlogPageContainer extends React.Component {
   constructor(props) {
@@ -18,7 +18,7 @@ class BlogPageContainer extends React.Component {
       blogTitle: null,
       blogAuthor: null,
       blogBody: null,
-      error: ""
+      error: ''
     };
   }
 
@@ -29,10 +29,10 @@ class BlogPageContainer extends React.Component {
   getAllResources() {
     this.client
       .getEntries({
-        content_type: "2wKn6yEnZewu2SCCkus4as"
+        content_type: '2wKn6yEnZewu2SCCkus4as'
       })
       .then(blog => {
-        const postId = this.props.location.pathname.split("/").pop();
+        const postId = this.props.location.pathname.split('/').pop();
         const findPost = blog.items.find(
           ({ fields, sys }, index) => fields.slug === postId
         );

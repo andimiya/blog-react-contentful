@@ -5,20 +5,22 @@ import PageTitle from './components/PageTitle';
 // import HomepageContainer from './containers/HomepageContainer';
 import BlogRollContainer from './containers/BlogRollContainer';
 import BlogPageContainer from './containers/BlogPageContainer';
+import LandingPageContainer from './containers/LandingPageContainer';
 import Footer from './components/Footer';
 
-const App = () =>
+const App = () => (
   <div id="app-container">
     <Router>
       <div className="app">
         <NavBar />
-        <PageTitle />
         <Route exact path="/" component={BlogRollContainer} />
+        <Route exact path="/:slug" component={LandingPageContainer} />
         <Route exact path="/blog" component={BlogRollContainer} />
         <Route exact path="/blog/:slug" component={BlogPageContainer} />
         <Footer />
       </div>
     </Router>
-  </div>;
+  </div>
+);
 
 export default App;
