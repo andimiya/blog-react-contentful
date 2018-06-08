@@ -1,9 +1,9 @@
 import React from 'react';
-import GridTile from '../../components/GridTile';
+import BlogRollItem from '../../components/BlogRollItem';
 import { createClient } from 'contentful';
 import { SPACE_ID, ACCESSTOKEN } from '../../constants';
 
-class WorkContainer extends React.Component {
+class BlogRollContainer extends React.Component {
   constructor(props) {
     super(props);
 
@@ -25,25 +25,29 @@ class WorkContainer extends React.Component {
   }
 
   getAllResources(){
-    this.client.getEntries()
-    .then((entry) => {
-      this.setState ({ content: entry.items })
+    this.client.getEntries({
+      'content_type': '2wKn6yEnZewu2SCCkus4as'
+    })
+    .then((blog) => {
+      console.log(blog, 'entry');
+      
+      this.setState ({ content: blog.items })
     })
   }
 
-  render(props) {
+  render() {
     return (
       <div className="work-container outer">
         <div className="grid-area-container">
           {this.state.content.map(({ fields, sys }, index) => {
             return (
-              <GridTile
+              <BlogRollItem
                 key={sys.id}
                 id={fields.slug}
                 title={fields.title}
-                position={fields.position}
                 slug={fields.slug}
-                workSample={fields.workSample.fields.file.url}
+                date={sys.createdAt}
+                body={fields.body.substring(0,150)}
                 handleResourceClick={this.props.handleResourceClick}
               />
             );
@@ -54,4 +58,4 @@ class WorkContainer extends React.Component {
   };
 };
 
-export default WorkContainer;
+export default BlogRollContainer;
