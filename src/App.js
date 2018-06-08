@@ -1,8 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
-import PageTitle from './components/PageTitle';
-// import HomepageContainer from './containers/HomepageContainer';
 import BlogRollContainer from './containers/BlogRollContainer';
 import BlogPageContainer from './containers/BlogPageContainer';
 import LandingPageContainer from './containers/LandingPageContainer';
