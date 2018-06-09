@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const EmailSignUp = props => {
   return (
@@ -14,7 +14,7 @@ const EmailSignUp = props => {
           >
             <h2>Subscribe to our newsletter!</h2>
             <div className="revue-form-group">
-              <label for="member_email">Email address</label>
+              <label htmlFor="member_email">Email address</label>
               <input
                 className="revue-form-field"
                 placeholder="Email address"

@@ -1,14 +1,19 @@
 import React from 'react';
+import moment from 'moment';
+const sudokrewLogo = require('../assets/sudokrew-logo.svg');
 
 const Footer = () => {
   return (
-    <div className="footer-container">
-      <div className="footer-container-inner">
-        <div className="footer-item">
-         <p>Footer</p>
+    <footer className="site-footer">
+      <div className="footer">
+        <div className="container">
+          <a className="footer__logo" href="https://sudokrew.com">
+            <img src={sudokrewLogo} alt="Sudokrew Logo" />
+          </a>
+          <p className="footer__copyright">Sudokrew {moment().year()}</p>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

@@ -4,6 +4,7 @@ import { createClient } from 'contentful';
 import { SPACE_ID, ACCESSTOKEN } from '../../constants';
 import BlogTitle from '../../components/BlogTitle';
 import moment from 'moment';
+import marked from 'marked';
 
 class BlogRollContainer extends React.Component {
   constructor(props) {
@@ -56,7 +57,7 @@ class BlogRollContainer extends React.Component {
                   author={fields.author}
                   slug={fields.slug}
                   date={moment(sys.createdAt).format('LL')}
-                  body={fields.body.substring(0, 150)}
+                  body={fields.blogRollTextPreview}
                   handleResourceClick={this.props.handleResourceClick}
                 />
               );
