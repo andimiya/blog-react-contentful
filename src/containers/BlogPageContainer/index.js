@@ -61,7 +61,7 @@ class BlogPageContainer extends React.Component {
         <header className="post-header">
           <div className="container">
             <Link to="/" className="roll-link">
-              Back to Blog Roll
+              Back to blog posts
             </Link>
             <h1 className="post-title">Title: {this.state.blogTitle}</h1>
             <p className="post-meta">

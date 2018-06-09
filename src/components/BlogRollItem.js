@@ -5,12 +5,25 @@ const BlogRollItem = props => {
   return (
     <ul className="post-list">
       <li>
-        <Link to={`/blog/${props.slug}`} onClick={props.handleResourceClick}>
-          <h2>{props.title}</h2>
-        </Link>
+        <h2>
+          <Link
+            to={`/blog/${props.slug}`}
+            className="post-link"
+            onClick={props.handleResourceClick}
+          >
+            {props.title}
+          </Link>
+        </h2>
         <div className="post-preview">
           <p>{props.body}</p>
         </div>
+        <Link
+          to={`/blog/${props.slug}`}
+          className="post-cta"
+          onClick={props.handleResourceClick}
+        >
+          Read more
+        </Link>
         <div className="post-meta">
           <ul>
             <li className="post-date">{props.date}</li>

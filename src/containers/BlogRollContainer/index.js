@@ -4,7 +4,6 @@ import { createClient } from 'contentful';
 import { SPACE_ID, ACCESSTOKEN } from '../../constants';
 import BlogTitle from '../../components/BlogTitle';
 import moment from 'moment';
-import marked from 'marked';
 
 class BlogRollContainer extends React.Component {
   constructor(props) {
@@ -33,7 +32,6 @@ class BlogRollContainer extends React.Component {
         content_type: '2wKn6yEnZewu2SCCkus4as'
       })
       .then(blog => {
-        console.log(blog, 'blog');
         return this.setState({ content: blog.items });
       });
   }
@@ -41,7 +39,7 @@ class BlogRollContainer extends React.Component {
   render() {
     return (
       <div className="home">
-        <section className="blog-header">
+        <section className="blog-heading">
           <div className="blog-container">
             <BlogTitle />
           </div>
