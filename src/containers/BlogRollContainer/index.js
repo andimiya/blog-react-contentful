@@ -3,6 +3,7 @@ import BlogRollItem from '../../components/BlogRollItem';
 import { createClient } from 'contentful';
 import { SPACE_ID, ACCESSTOKEN } from '../../constants';
 import BlogTitle from '../../components/BlogTitle';
+import moment from 'moment';
 
 class BlogRollContainer extends React.Component {
   constructor(props) {
@@ -52,8 +53,9 @@ class BlogRollContainer extends React.Component {
                   key={sys.id}
                   id={fields.slug}
                   title={fields.title}
+                  author={fields.author}
                   slug={fields.slug}
-                  date={sys.createdAt}
+                  date={moment(sys.createdAt).format('LL')}
                   body={fields.body.substring(0, 150)}
                   handleResourceClick={this.props.handleResourceClick}
                 />
