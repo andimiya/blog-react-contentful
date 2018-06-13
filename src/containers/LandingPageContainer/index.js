@@ -32,9 +32,7 @@ class LandingPageContainer extends React.Component {
         content_type: 'landingPage'
       })
       .then(page => {
-        console.log(page, 'page');
         const pageId = this.props.location.pathname.split('/').pop();
-        console.log(pageId, 'page id');
         const findPost = page.items.find(
           ({ fields, sys }, index) => fields.slug === pageId
         );
@@ -47,7 +45,6 @@ class LandingPageContainer extends React.Component {
   }
 
   render() {
-    console.log(this.state, 'state');
     return (
       <div className="work-container outer">
         <div className="grid-area-container">
