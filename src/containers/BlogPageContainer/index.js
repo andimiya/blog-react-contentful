@@ -22,6 +22,7 @@ class BlogPageContainer extends React.Component {
       blogAuthor: null,
       blogBody: null,
       blogDate: null,
+      blogEmbed: null,
       error: ''
     };
   }
@@ -44,7 +45,8 @@ class BlogPageContainer extends React.Component {
           blogTitle: findPost.fields.title.toString(),
           blogBody: findPost.fields.body.toString(),
           blogAuthor: findPost.fields.author.toString(),
-          blogDate: moment(findPost.sys.createdAt).format('LL')
+          blogDate: moment(findPost.sys.createdAt).format('LL'),
+          blogEmbed: findPost.fields.soundCloud
         });
       });
   }
@@ -72,14 +74,24 @@ class BlogPageContainer extends React.Component {
             </p>
           </div>
         </header>
-
         <div className="post-content">
-          {this.state.blogBody && (
-            <div
-              className="container"
-              dangerouslySetInnerHTML={this.parseMarkdown()}
-            />
-          )}
+          <div className="container">
+            {!this.state.blogEmbed ? (
+              <div />
+            ) : (
+              <iframe
+                title={this.state.blogTitle}
+                width="100%"
+                height="100"
+                scrolling="no"
+                frameBorder="no"
+                src={this.state.blogEmbed}
+              />
+            )}
+            {this.state.blogBody && (
+              <div dangerouslySetInnerHTML={this.parseMarkdown()} />
+            )}
+          </div>
         </div>
       </article>
     );
